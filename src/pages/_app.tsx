@@ -1,10 +1,13 @@
+import { CurrentDateProvider } from "../hooks/useCurrentDate";
 import "../styles/tailwind-globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className=" flex justify-center items-center flex-col">
-      <Component {...pageProps} />
-    </div>
+    <CurrentDateProvider>
+      <div className="h-screen">
+        <Component {...pageProps} />
+      </div>
+    </CurrentDateProvider>
   );
 }
 

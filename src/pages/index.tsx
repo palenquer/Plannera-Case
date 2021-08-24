@@ -3,16 +3,57 @@ import { Expenses } from "../../types";
 import Header from "../components/Header";
 import { GetStaticProps } from "next";
 import moment from "moment";
-import 'moment/locale/pt-br';
+import "moment/locale/pt-br";
 import SubmitButton from "../components/SubmitButton";
+import { useCurrentDate } from "../hooks/useCurrentDate";
+import { useEffect, useState } from "react";
 
 interface HomeProps {
   data: Expenses[];
 }
+interface filteredDate {
+  _id: number;
+  value: number;
+  description: string;
+  email: string;
+  currency: string;
+  date: string;
+}
 
 export default function Home({ data }: HomeProps) {
+  const { currentDate } = useCurrentDate();
+  const [filteredDate, setFilteredDate] = useState<filteredDate[]>([]);
+  const [filteredExpenses, setFilteredExpenses] = useState<filteredDate[]>([]);
+
+  useEffect(() => {
+    const filterDate = data.map((expense) => {
+      return {
+        _id: expense._id,
+        value: expense.value,
+        description: expense.description,
+        email: expense.email,
+        currency: expense.currency,
+        date: moment(expense.date, "YYYY-MM-DD hh:mm:ss a").format("L"),
+      };
+    });
+
+    setFilteredDate(filterDate);
+  }, []);
+
+  function Filter() {
+    const filter = filteredDate.filter(
+      (filteredExpense) =>
+        moment(filteredExpense.date).month() + 1 === currentDate.month &&
+        moment(filteredExpense.date).year() === currentDate.year
+    );
+
+    filter.length != 0
+      ? setFilteredExpenses(filter)
+      : alert("Não há despesa para o período.");
+  }
+
   return (
-    <>
+    <div className="h-full">
       <Head>
         <title>Expenses</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,20 +80,21 @@ export default function Home({ data }: HomeProps) {
             </tr>
           </thead>
 
-          <tbody>
-            {data.map((expense) => {
-              return (
-                <tr key={expense._id}>
+          <tbody className="w-full h-full">
+            {currentDate != null &&
+              filteredExpenses.length != 0 &&
+              filteredExpenses.map((filteredExpense) => (
+                <tr key={filteredExpense._id}>
                   <td className="py-2 px-2 border-0 bg-white rounded hidden md:block text-center text-sm">
-                    {moment(expense.date, "YYYY-MM-DD hh:mm:ss a").format("L")}
+                    {filteredExpense.date}
                   </td>
 
                   <td className="py-2 px-2 border-0 bg-white rounded text-center text-sm">
-                    {expense.description}
+                    {filteredExpense.description}
                   </td>
 
                   <td className="py-2 px-2 border-0 bg-white rounded text-center text-sm">
-                    {expense.currency + expense.value}
+                    {filteredExpense.currency + filteredExpense.value}
                   </td>
 
                   <td className="py-2 px-2 border-0 bg-white text-gray-500 rounded text-center text-sm">
@@ -61,14 +103,13 @@ export default function Home({ data }: HomeProps) {
                     </button>
                   </td>
                 </tr>
-              );
-            })}
+              ))}
           </tbody>
         </table>
       </main>
 
-      <SubmitButton />
-    </>
+      <SubmitButton onClick={Filter} />
+    </div>
   );
 }
 
