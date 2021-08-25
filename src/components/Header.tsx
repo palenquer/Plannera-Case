@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCurrentDate } from "../hooks/useCurrentDate";
 
-export default function Header() {
+export default function Header({children}) {
   const [startDate, setStartDate] = useState(new Date());
   const { updateCurrentDate } = useCurrentDate();
 
@@ -33,6 +33,8 @@ export default function Header() {
         placeholderText="Ano"
         dateFormat="yyyy"
       />
+
+      {children}
     </header>
   );
 }
