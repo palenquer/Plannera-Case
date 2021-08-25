@@ -1,4 +1,4 @@
-import expenses from "../../services/expenses.json";
+import { expenses } from "../../services/expenses";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default function Expenses(

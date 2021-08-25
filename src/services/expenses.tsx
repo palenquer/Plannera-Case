@@ -1,4 +1,5 @@
-[
+
+export const expenses = [
   {
     "_id": "611febb29e0190a681d7c2e8",
     "value": 243.27,
@@ -11,7 +12,7 @@
     "_id": "611febb229c6b0e24f7bab05",
     "value": 265.01,
     "description": "INVENTURE",
-    "email": "ballardpetty@inventure.com",
+    "email": "ballardpetty@inventure.com",  
     "currency": "R$",
     "date": "2020-04-13T05:37:28 +03:00"
   },
