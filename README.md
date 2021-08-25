@@ -3,7 +3,7 @@
   
   <p align="center">
     <br />
-    <a href="plannera-case.vercel.app">DEMO</a>
+    <a href="https://plannera-case.vercel.app">DEMO</a>
   </p>
 </p>
 
