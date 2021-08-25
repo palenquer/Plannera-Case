@@ -72,7 +72,7 @@ export default function Home({ data }: HomeProps) {
         <SubmitButton onClick={Filter}/>
       </Header>
 
-      <main className="flex flex-col w-full p-2">
+      <main className="flex flex-col w-full p-2 pb-16 md:pb-0">
         {showExpense.length > 0 && (
           <div className="text-center p-4">
             <h2 className="font-bold">Despesa selecionada</h2>
@@ -136,7 +136,7 @@ export default function Home({ data }: HomeProps) {
         </table>
       </main>
 
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <SubmitButton onClick={Filter} />
       </div>
     </div>
