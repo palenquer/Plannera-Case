@@ -5,7 +5,6 @@
     <br />
     <a href="plannera-case.vercel.app">DEMO</a>
   </p>
-  <p align="center">Case Plannera.</p>
 </p>
 
 <h2>Sobre o projeto</h2>
