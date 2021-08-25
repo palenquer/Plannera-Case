@@ -35,7 +35,7 @@ Esse projeto é um desafio da empresa Plannera.
    ```
 3. Rode o projeto no seu terminal
     ```sh
-   npm start // yarn start
+   npm dev // yarn dev
    ```
 4. Abra o localhost indicado no seu navegador
 
