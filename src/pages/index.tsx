@@ -110,7 +110,7 @@ export default function Home({ data }: HomeProps) {
               filteredExpenses.length != 0 &&
               filteredExpenses.map((filteredExpense) => (
                 <tr key={filteredExpense._id}>
-                  <td className="py-2 px-2 border-0 bg-white rounded hidden md:block text-center text-sm">
+                  <td className="py-4 px-2 border-0 bg-white rounded hidden md:block text-center text-sm">
                     {filteredExpense.date}
                   </td>
 
