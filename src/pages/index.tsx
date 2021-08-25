@@ -7,6 +7,7 @@ import "moment/locale/pt-br";
 import SubmitButton from "../components/SubmitButton";
 import { useCurrentDate } from "../hooks/useCurrentDate";
 import { useEffect, useState } from "react";
+import { expensesList } from "../services/expenses";
 
 interface HomeProps {
   data: Expenses[];
@@ -114,11 +115,8 @@ export default function Home({ data }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`http://localhost:3000/api/expenses`);
-  const data = await res.json();
-
   return {
-    props: { data },
+    props: { data: expensesList },
     revalidate: 60 * 60 * 24, // 24 hours
   };
 };

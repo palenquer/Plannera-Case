@@ -1,5 +1,5 @@
 
-export const expenses = [
+export const expensesList = [
   {
     "_id": "611febb29e0190a681d7c2e8",
     "value": 243.27,
