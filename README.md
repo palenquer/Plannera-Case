@@ -2,6 +2,13 @@
   <h1 align="center">plannera-case</h1>
   
   <p align="center">
+    <img src="https://user-images.githubusercontent.com/72106284/130840906-199997dd-165c-4253-b17f-5ff249044799.png">
+    <h3>Desktop</h3>
+    <img src="https://user-images.githubusercontent.com/72106284/130841016-2975f061-9a8e-4343-9875-cc5b397bdbd0.png">
+    <h3>Mobile</h3>
+  </p>
+
+  <p align="center">
     <br />
     <a href="https://plannera-case.vercel.app">DEMO</a>
   </p>
